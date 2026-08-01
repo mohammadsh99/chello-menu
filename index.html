@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHELLO CHOCOLATE | Menu</title>
+    <meta
+      name="description"
+      content="CHELLO CHOCOLATE premium dessert and drinks menu."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="assets/hero/hero-banner.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <header class="site-header" id="top">
+      <div class="crown" aria-hidden="true">
+        <span class="crown-tip"></span>
+        <span class="crown-tip"></span>
+        <span class="crown-tip"></span>
+        <span class="crown-base"></span>
+      </div>
+      <h1 class="brand">CHELLO CHOCOLATE</h1>
+      <p class="slogan">Taste Happiness In Every Bite</p>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Featured desserts and drinks">
+        <img
+          src="assets/hero/hero-banner.webp"
+          alt="CHELLO CHOCOLATE signature desserts and drinks"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          width="1536"
+          height="1024"
+        />
+      </section>
+
+      <section class="menu-controls" aria-label="Menu controls">
+        <label class="search-wrap" for="searchInput">
+          <span>Search Products</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Type to search..."
+            autocomplete="off"
+          />
+        </label>
+      </section>
+
+      <nav
+        class="category-nav"
+        id="categoryNav"
+        aria-label="Menu categories"
+      ></nav>
+
+      <section class="menu-content" id="menuContent" aria-live="polite">
+        <p class="loading-text">Loading menu...</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <p><strong>Phone:</strong> <a href="tel:0526062983">0526062983</a></p>
+        <p>
+          <strong>WhatsApp:</strong>
+          <a
+            class="whatsapp-btn"
+            href="https://wa.me/972526062983"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Chat Now</a
+          >
+        </p>
+        <p>
+          <strong>Instagram:</strong>
+          <a
+            href="https://www.instagram.com/chello_chocolate/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >@chello_chocolate</a
+          >
+        </p>
+        <p><strong>Address:</strong> Sakhnin, Israel</p>
+      </div>
+      <p class="copyright">
+        &copy; <span id="year"></span> CHELLO CHOCOLATE. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

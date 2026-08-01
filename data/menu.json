@@ -1,0 +1,255 @@
+{
+  "shopName": "CHELLO CHOCOLATE",
+  "slogan": "Taste Happiness In Every Bite",
+  "currency": "ILS",
+  "categories": [
+    { "id": "chefs-recommendations", "name": "⭐ Chef's Recommendations" },
+    { "id": "signature-desserts", "name": "Signature Desserts" },
+    { "id": "belgian-waffles", "name": "Belgian Waffles" },
+    { "id": "pancakes", "name": "Pancakes" },
+    { "id": "crepes", "name": "Crepes" },
+    { "id": "chocolate-skewers", "name": "Chocolate Skewers" },
+    { "id": "ice-cream", "name": "Ice Cream" },
+    { "id": "fresh-juices", "name": "Fresh Juices" },
+    { "id": "refreshers", "name": "Refreshers" },
+    { "id": "soft-drinks", "name": "Soft Drinks" }
+  ],
+  "items": [
+    {
+      "id": "rec-fruit-cocktail",
+      "categoryId": "chefs-recommendations",
+      "name": "Fruit Cocktail (Fakhfakhina)",
+      "subtitle": "House Bestseller",
+      "price": 20,
+      "description": "Fresh fruit layers served in our signature style.",
+      "image": "assets/fruits/fruit-cocktail-fakhfakhina.webp"
+    },
+    {
+      "id": "rec-waffle",
+      "categoryId": "chefs-recommendations",
+      "name": "Belgian Waffle",
+      "subtitle": "Golden & Crispy",
+      "price": 40,
+      "description": "Premium waffle finished with rich chocolate toppings.",
+      "image": "assets/waffles/belgian-waffle.webp"
+    },
+    {
+      "id": "rec-pancakes",
+      "categoryId": "chefs-recommendations",
+      "name": "Pancakes",
+      "subtitle": "Soft & Fluffy",
+      "price": 15,
+      "description": "Served with chocolate drizzle and your favorite extras.",
+      "image": "assets/pancakes/pancake-3.webp"
+    },
+    {
+      "id": "rec-crepe",
+      "categoryId": "chefs-recommendations",
+      "name": "Crepe",
+      "subtitle": "Classic Chocolate Crepe",
+      "price": 25,
+      "description": "Thin, warm crepe crafted fresh to order.",
+      "image": "assets/crepes/crepe.webp"
+    },
+    {
+      "id": "sig-fruit-cocktail",
+      "categoryId": "signature-desserts",
+      "name": "Fruit Cocktail",
+      "subtitle": "Fresh Selection",
+      "price": 20,
+      "image": "assets/fruits/fruit-cocktail-fakhfakhina.webp"
+    },
+    {
+      "id": "sig-fruit-shake",
+      "categoryId": "signature-desserts",
+      "name": "Fruit Shake",
+      "subtitle": "Fresh Fruit & Milk",
+      "price": 20,
+      "image": "assets/milkshakes/fruit shake.webp"
+    },
+    {
+      "id": "sig-milkshake",
+      "categoryId": "signature-desserts",
+      "name": "Milkshake",
+      "subtitle": "Creamy Blend",
+      "price": 20,
+      "image": "assets/milkshakes/milkshake.webp"
+    },
+    {
+      "id": "waffle-belgian",
+      "categoryId": "belgian-waffles",
+      "name": "Belgian Waffle",
+      "subtitle": "Golden & Crispy",
+      "price": 40,
+      "description": "Premium Belgian waffle with your favorite toppings.",
+      "image": "assets/waffles/belgian-waffle.webp"
+    },
+    {
+      "id": "pancake-1",
+      "categoryId": "pancakes",
+      "name": "Pancake (1 Piece)",
+      "price": 6,
+      "image": "assets/pancakes/pancake-1.webp"
+    },
+    {
+      "id": "pancake-3",
+      "categoryId": "pancakes",
+      "name": "Pancake (3 Pieces)",
+      "price": 15,
+      "image": "assets/pancakes/pancake-3.webp"
+    },
+    {
+      "id": "crepe-regular",
+      "categoryId": "crepes",
+      "name": "Crepe",
+      "subtitle": "Classic Chocolate Crepe",
+      "price": 25,
+      "description": "Thin, warm crepe finished with rich chocolate.",
+      "image": "assets/crepes/crepe.webp"
+    },
+    {
+      "id": "crepe-fettuccine",
+      "categoryId": "crepes",
+      "name": "Fettuccine Crepe",
+      "subtitle": "Signature Style",
+      "price": 30,
+      "description": "Delicate strips of crepe served with chocolate layers.",
+      "image": "assets/crepes/fettuccine-crepe.webp"
+    },
+    {
+      "id": "choco-skewers-7",
+      "categoryId": "chocolate-skewers",
+      "name": "7 Pieces",
+      "price": 20,
+      "image": "assets/chocolate-skewers/chocolate-skewers-7-pieces.webp"
+    },
+    {
+      "id": "choco-skewers-10",
+      "categoryId": "chocolate-skewers",
+      "name": "10 Pieces",
+      "price": 28,
+      "image": "assets/chocolate-skewers/chocolate-skewers-10-pieces.webp"
+    },
+    {
+      "id": "choco-skewers-15",
+      "categoryId": "chocolate-skewers",
+      "name": "15 Pieces",
+      "price": 35,
+      "image": "assets/chocolate-skewers/chocolate-skewers-15-pieces.webp"
+    },
+    {
+      "id": "choco-skewers-20",
+      "categoryId": "chocolate-skewers",
+      "name": "20 Pieces",
+      "price": 42,
+      "image": "assets/chocolate-skewers/chocolate-skewers-20-pieces.webp"
+    },
+    {
+      "id": "ice-1",
+      "categoryId": "ice-cream",
+      "name": "1 Scoop",
+      "price": 6,
+      "image": "assets/icecream/ice-cream-1-scoop.webp"
+    },
+    {
+      "id": "ice-3",
+      "categoryId": "ice-cream",
+      "name": "3 Scoops",
+      "price": 15,
+      "image": "assets/icecream/ice-cream-3-scoops.webp"
+    },
+    {
+      "id": "juice-orange",
+      "categoryId": "fresh-juices",
+      "name": "Orange Juice",
+      "price": 14,
+      "image": "assets/fresh-juices/orange juice.webp"
+    },
+    {
+      "id": "juice-carrot",
+      "categoryId": "fresh-juices",
+      "name": "Carrot Juice",
+      "price": 14,
+      "image": "assets/fresh-juices/carrot-juice.webp"
+    },
+    {
+      "id": "juice-orange-carrot",
+      "categoryId": "fresh-juices",
+      "name": "Orange & Carrot",
+      "price": 16,
+      "image": "assets/fresh-juices/Orange & Carrot.webp"
+    },
+    {
+      "id": "juice-apple",
+      "categoryId": "fresh-juices",
+      "name": "Apple Juice",
+      "price": 15,
+      "image": "assets/fresh-juices/Apple Juice.webp"
+    },
+    {
+      "id": "juice-pomegranate",
+      "categoryId": "fresh-juices",
+      "name": "Pomegranate Juice",
+      "price": 18,
+      "image": "assets/fresh-juices/Pomegranate Juice.webp"
+    },
+    {
+      "id": "ref-mojito",
+      "categoryId": "refreshers",
+      "name": "Mojito",
+      "price": 17,
+      "image": "assets/refreshers/Mojito.webp"
+    },
+    {
+      "id": "ref-jarous",
+      "categoryId": "refreshers",
+      "name": "Jarous",
+      "subtitle": "Refreshing Special",
+      "price": 17,
+      "image": "assets/refreshers/Jarous.webp"
+    },
+    {
+      "id": "ref-lemonade",
+      "categoryId": "refreshers",
+      "name": "Lemonade",
+      "subtitle": "Freshly Pressed",
+      "price": 13,
+      "image": "assets/refreshers/Lemonade.webp"
+    },
+    {
+      "id": "ref-ice-cafe",
+      "categoryId": "refreshers",
+      "name": "Ice Café",
+      "price": 13,
+      "image": "assets/refreshers/ice-cafe.webp"
+    },
+    {
+      "id": "ref-basiflora",
+      "categoryId": "refreshers",
+      "name": "Basiflora",
+      "price": 13,
+      "image": "assets/refreshers/basiflora.webp"
+    },
+    {
+      "id": "soft-drinks",
+      "categoryId": "soft-drinks",
+      "name": "Soft Drinks",
+      "price": 10,
+      "image": "assets/soft-drinks/Soft Drinks.webp"
+    },
+    {
+      "id": "soft-water",
+      "categoryId": "soft-drinks",
+      "name": "Water",
+      "price": 7,
+      "image": "assets/soft-drinks/water.webp"
+    },
+    {
+      "id": "soft-soda",
+      "categoryId": "soft-drinks",
+      "name": "Soda",
+      "price": 7,
+      "image": "assets/soft-drinks/Soda.webp"
+    }
+  ]
+}
