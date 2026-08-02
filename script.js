@@ -58,7 +58,7 @@ const CATEGORY_TRANSLATIONS = {
     "belgian-waffles": "الوافل البلجيكي",
     pancakes: "البان كيك",
     crepes: "الكريب",
-    "chocolate-skewers": "أسياخ الشوكولاتة",
+    "chocolate-skewers": "فشافيش",
     "ice-cream": "آيس كريم",
     "fresh-juices": "العصائر الطازجة",
     refreshers: "المرطبات",
