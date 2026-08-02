@@ -120,28 +120,28 @@
       "id": "choco-skewers-7",
       "categoryId": "chocolate-skewers",
       "name": "7 Pieces",
-      "price": 20,
+      "price": 15,
       "image": "assets/chocolate-skewers/chocolate-skewers-7-pieces.webp"
     },
     {
       "id": "choco-skewers-10",
       "categoryId": "chocolate-skewers",
       "name": "10 Pieces",
-      "price": 28,
+      "price": 18,
       "image": "assets/chocolate-skewers/chocolate-skewers-10-pieces.webp"
     },
     {
       "id": "choco-skewers-15",
       "categoryId": "chocolate-skewers",
       "name": "15 Pieces",
-      "price": 35,
+      "price": 25,
       "image": "assets/chocolate-skewers/chocolate-skewers-15-pieces.webp"
     },
     {
       "id": "choco-skewers-20",
       "categoryId": "chocolate-skewers",
       "name": "20 Pieces",
-      "price": 42,
+      "price": 35,
       "image": "assets/chocolate-skewers/chocolate-skewers-20-pieces.webp"
     },
     {
@@ -162,35 +162,35 @@
       "id": "juice-orange",
       "categoryId": "fresh-juices",
       "name": "Orange Juice",
-      "price": 14,
+      "price": 17,
       "image": "assets/fresh-juices/orange juice.webp"
     },
     {
       "id": "juice-carrot",
       "categoryId": "fresh-juices",
       "name": "Carrot Juice",
-      "price": 14,
+      "price": 15,
       "image": "assets/fresh-juices/carrot-juice.webp"
     },
     {
       "id": "juice-orange-carrot",
       "categoryId": "fresh-juices",
       "name": "Orange & Carrot",
-      "price": 16,
+      "price": 17,
       "image": "assets/fresh-juices/Orange & Carrot.webp"
     },
     {
       "id": "juice-apple",
       "categoryId": "fresh-juices",
       "name": "Apple Juice",
-      "price": 15,
+      "price": 17,
       "image": "assets/fresh-juices/Apple Juice.webp"
     },
     {
       "id": "juice-pomegranate",
       "categoryId": "fresh-juices",
       "name": "Pomegranate Juice",
-      "price": 18,
+      "price": 20,
       "image": "assets/fresh-juices/Pomegranate Juice.webp"
     },
     {

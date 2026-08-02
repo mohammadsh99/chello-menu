@@ -47,9 +47,87 @@ body {
 }
 
 .site-header {
+  position: relative;
   text-align: center;
   padding: 1.4rem 1rem 0.9rem;
   animation: fadeDown 0.8s ease-out;
+}
+
+.lang-switcher {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 20;
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
+  max-width: calc(100vw - 40px);
+  margin: 0;
+  gap: 0.3rem;
+  padding: 0.34rem;
+  border: 1px solid rgba(217, 173, 84, 0.42);
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 13, 10, 0.96),
+    rgba(9, 8, 7, 0.96)
+  );
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(241, 208, 137, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  border: 1px solid rgba(217, 173, 84, 0.2);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--gold-soft);
+  border-radius: 999px;
+  padding: 0.44rem 0.72rem;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  min-height: 2.15rem;
+  transition:
+    transform 0.2s,
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.lang-icon {
+  font-size: 0.85rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(217, 173, 84, 0.18));
+}
+
+.lang-label {
+  line-height: 1;
+}
+
+.lang-btn:hover,
+.lang-btn:focus-visible,
+.lang-btn.active {
+  background: linear-gradient(120deg, #c7922f, #f4d893);
+  color: #181008;
+  border-color: rgba(241, 208, 137, 0.82);
+  box-shadow:
+    0 0 0 1px rgba(241, 208, 137, 0.2),
+    0 0 18px rgba(217, 173, 84, 0.25);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1023px) {
+  .lang-switcher {
+    top: 16px;
+    left: 16px;
+    max-width: calc(100vw - 32px);
+  }
 }
 
 .crown {
@@ -300,6 +378,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   background: #1c1510;
 }
 
@@ -443,6 +522,26 @@ main {
   .card-media {
     aspect-ratio: 16 / 10;
     height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .lang-switcher {
+    top: 12px;
+    left: 12px;
+    gap: 0.22rem;
+    padding: 0.28rem;
+    max-width: calc(100vw - 24px);
+  }
+
+  .lang-btn {
+    padding: 0.36rem 0.58rem;
+    font-size: 0.68rem;
+    min-height: 2.05rem;
+  }
+
+  .lang-icon {
+    font-size: 0.78rem;
   }
 }
 
