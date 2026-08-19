@@ -112,6 +112,49 @@
       </p>
     </footer>
 
+    <div class="flavor-overlay" id="flavorOverlay" hidden>
+      <div
+        class="flavor-sheet"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="flavorSheetTitle"
+      >
+        <span class="flavor-sheet-handle" aria-hidden="true"></span>
+        <div class="flavor-sheet-header">
+          <h3 class="flavor-sheet-title" id="flavorSheetTitle"></h3>
+          <button
+            type="button"
+            class="flavor-close-btn"
+            id="flavorCloseBtn"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+        </div>
+        <div
+          class="flavor-step-indicator"
+          id="flavorStepIndicator"
+          hidden
+        ></div>
+        <div class="flavor-grid" id="flavorGrid"></div>
+        <p class="flavor-summary" id="flavorSummary" hidden></p>
+        <div class="flavor-sheet-footer" id="flavorFooter" hidden>
+          <button
+            type="button"
+            class="flavor-back-btn"
+            id="flavorBackBtn"
+            hidden
+          ></button>
+          <button
+            type="button"
+            class="flavor-next-btn"
+            id="flavorNextBtn"
+            disabled
+          ></button>
+        </div>
+      </div>
+    </div>
+
     <script src="script.js?v=20260802" defer></script>
   </body>
 </html>

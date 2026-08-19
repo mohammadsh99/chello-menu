@@ -4,6 +4,7 @@
   "currency": "ILS",
   "categories": [
     { "id": "chefs-recommendations", "name": "⭐ Chef's Recommendations" },
+    { "id": "campaigns", "name": "Campaigns" },
     { "id": "signature-desserts", "name": "Signature Desserts" },
     { "id": "belgian-waffles", "name": "Belgian Waffles" },
     { "id": "pancakes", "name": "Pancakes" },
@@ -15,6 +16,68 @@
     { "id": "soft-drinks", "name": "Soft Drinks" }
   ],
   "items": [
+    {
+      "id": "camp-milkshake",
+      "categoryId": "campaigns",
+      "name": "Milkshake Bundle",
+      "price": 100,
+      "description": "A refreshing milkshake duo bundle.",
+      "image": "assets/campaigns/campaign-milkshake.jpg",
+      "contents": [
+        "2 Milkshakes",
+        "2 Medium Mojitos",
+        "2 Passion Fruit / Berry Ice"
+      ]
+    },
+    {
+      "id": "camp-delaa-halak",
+      "categoryId": "campaigns",
+      "name": "Delaa Halak Bundle",
+      "price": 100,
+      "description": "Treat yourself to a sweet mix of favorites.",
+      "image": "assets/campaigns/campaign-delaa-halak.jpg",
+      "contents": ["2 Waffles", "20 Fshafesh Balls", "6 Mini Pancakes"]
+    },
+    {
+      "id": "camp-summer",
+      "categoryId": "campaigns",
+      "name": "Summer Bundle",
+      "price": 100,
+      "description": "A cool summer treat combo.",
+      "image": "assets/campaigns/campaign-summer.jpg",
+      "contents": [
+        "2 Small Fakhfakhina",
+        "1 Crepe",
+        "15 Fshafesh Balls",
+        "3 Ice Cream Scoops"
+      ]
+    },
+    {
+      "id": "camp-fakhfakhina-chocolate",
+      "categoryId": "campaigns",
+      "name": "Fakhfakhina & Chocolate Bundle",
+      "price": 100,
+      "description": "Fruit cocktail paired with chocolate skewers.",
+      "image": "assets/campaigns/campaign-fakhfakhina-chocolate.jpg",
+      "contents": ["3 Medium Fakhfakhina", "20 Fshafesh Balls"]
+    },
+    {
+      "id": "camp-happiness",
+      "categoryId": "campaigns",
+      "name": "Happiness Bundle",
+      "price": 210,
+      "description": "Our biggest bundle for sharing happiness.",
+      "image": "assets/campaigns/campaign-happiness.jpg",
+      "contents": [
+        "2 Small Fakhfakhina",
+        "2 Small Fruit Shake",
+        "2 Small Milkshake",
+        "15 Fshafesh Balls",
+        "1 Crepe",
+        "3 Large Pancakes",
+        "3 Ice Cream Scoops"
+      ]
+    },
     {
       "id": "rec-fruit-cocktail",
       "categoryId": "chefs-recommendations",
@@ -73,7 +136,34 @@
       "name": "Milkshake",
       "subtitle": "Creamy Blend",
       "price": 20,
-      "image": "assets/milkshakes/milkshake.webp"
+      "image": "assets/milkshakes/milkshake.webp",
+      "flavors": [
+        {
+          "id": "oreo",
+          "name": "Oreo",
+          "image": "assets/milkshakes/milkshake-oreo.jpg"
+        },
+        {
+          "id": "berry",
+          "name": "Berry",
+          "image": "assets/milkshakes/milkshake-berry.jpg"
+        },
+        {
+          "id": "chocolate",
+          "name": "Chocolate",
+          "image": "assets/milkshakes/milkshake-chocolate.jpg"
+        },
+        {
+          "id": "vanilla",
+          "name": "Vanilla",
+          "image": "assets/milkshakes/milkshake-vanilla.jpg"
+        },
+        {
+          "id": "pistachio",
+          "name": "Pistachio",
+          "image": "assets/milkshakes/milkshake-pistachio.jpg"
+        }
+      ]
     },
     {
       "id": "waffle-belgian",
@@ -198,7 +288,126 @@
       "categoryId": "refreshers",
       "name": "Mojito",
       "price": 17,
-      "image": "assets/refreshers/Mojito.webp"
+      "image": "assets/refreshers/Mojito.webp",
+      "optionSteps": [
+        {
+          "id": "base",
+          "title": "Choose Your Base",
+          "options": [
+            {
+              "id": "sprite",
+              "name": "Sprite",
+              "image": "assets/refreshers/mojito-base-sprite.jpg"
+            },
+            {
+              "id": "xl",
+              "name": "XL",
+              "image": "assets/refreshers/mojito-base-xl.webp"
+            },
+            {
+              "id": "xl-ten",
+              "name": "XL TEN",
+              "image": "assets/refreshers/mojito-base-xl-ten.webp"
+            },
+            {
+              "id": "blu",
+              "name": "BLU",
+              "image": "assets/refreshers/mojito-base-blu.webp"
+            },
+            {
+              "id": "blu-day",
+              "name": "BLU DAY",
+              "image": "assets/refreshers/mojito-base-blu-day.webp"
+            }
+          ]
+        },
+        {
+          "id": "flavor",
+          "title": "Choose Your Flavor",
+          "options": [
+            {
+              "id": "strawberry",
+              "name": "Strawberry",
+              "image": "assets/refreshers/mojito-flavor-strawberry.webp"
+            },
+            {
+              "id": "watermelon",
+              "name": "Watermelon",
+              "image": "assets/refreshers/mojito-flavor-watermelon.webp"
+            },
+            {
+              "id": "mango",
+              "name": "Mango",
+              "image": "assets/refreshers/mojito-flavor-mango.jpg"
+            },
+            {
+              "id": "pineapple",
+              "name": "Pineapple",
+              "image": "assets/refreshers/mojito-flavor-pineapple.webp"
+            },
+            {
+              "id": "blueberry",
+              "name": "Blueberry",
+              "image": "assets/refreshers/mojito-flavor-blueberry.webp"
+            },
+            {
+              "id": "banana",
+              "name": "Banana",
+              "image": "assets/refreshers/mojito-flavor-banana.webp"
+            },
+            {
+              "id": "orange",
+              "name": "Orange",
+              "image": "assets/refreshers/mojito-flavor-orange.webp"
+            },
+            {
+              "id": "kiwi",
+              "name": "Kiwi",
+              "image": "assets/refreshers/mojito-flavor-kiwi.webp"
+            },
+            {
+              "id": "mastic",
+              "name": "Mastic",
+              "image": "assets/refreshers/mojito-flavor-mastic.jpg"
+            },
+            {
+              "id": "pomegranate",
+              "name": "Pomegranate",
+              "image": "assets/refreshers/mojito-flavor-pomegranate.png"
+            },
+            {
+              "id": "marshmallow",
+              "name": "Marshmallow",
+              "image": "assets/refreshers/mojito-flavor-marshmallow.jpg"
+            },
+            {
+              "id": "peach",
+              "name": "Peach",
+              "image": "assets/refreshers/mojito-flavor-peach.png"
+            },
+            {
+              "id": "mint",
+              "name": "Mint",
+              "image": "assets/refreshers/mojito-flavor-mint.jpg"
+            },
+            {
+              "id": "lemon",
+              "name": "Lemon",
+              "image": "assets/refreshers/mojito-flavor-lemon.jpg"
+            },
+            {
+              "id": "passion-fruit",
+              "name": "Passion Fruit",
+              "image": "assets/refreshers/mojito-flavor-passionfruit.jpg"
+            },
+            {
+              "id": "green-apple",
+              "name": "Green Apple",
+              "image": "assets/refreshers/mojito-flavor-greenapple.jpg"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "ref-jarous",

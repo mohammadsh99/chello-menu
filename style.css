@@ -375,6 +375,33 @@ main {
   border-color: rgba(241, 208, 137, 0.8);
 }
 
+.menu-card.has-flavors {
+  cursor: pointer;
+}
+
+.menu-card.has-flavors:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.card-flavor-hint {
+  margin: 0.1rem 0 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--gold-soft);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.card-flavor-hint::after {
+  content: "\2192";
+}
+
+[dir="rtl"] .card-flavor-hint::after {
+  content: "\2190";
+}
+
 .card-media {
   width: 100%;
   height: 100%;
@@ -573,5 +600,303 @@ main {
     animation: none !important;
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.flavor-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(8, 6, 4, 0.7);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.flavor-overlay[hidden] {
+  display: none;
+}
+
+.flavor-overlay.open {
+  opacity: 1;
+}
+
+.flavor-sheet {
+  width: min(560px, 100%);
+  max-height: min(82vh, 640px);
+  overflow-y: auto;
+  background: linear-gradient(
+    180deg,
+    rgba(23, 18, 13, 0.98),
+    rgba(13, 12, 10, 0.98)
+  );
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.45);
+  padding: 0.6rem 1.1rem calc(1.4rem + env(safe-area-inset-bottom, 0px));
+  transform: translateY(100%);
+  transition: transform 0.32s ease;
+}
+
+.flavor-overlay.open .flavor-sheet {
+  transform: translateY(0);
+}
+
+.flavor-sheet-handle {
+  display: block;
+  width: 42px;
+  height: 4px;
+  margin: 0.55rem auto 0.7rem;
+  border-radius: 999px;
+  background: rgba(217, 173, 84, 0.4);
+}
+
+.flavor-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+.flavor-sheet-title {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: var(--gold-soft);
+}
+
+.flavor-close-btn {
+  flex-shrink: 0;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: rgba(217, 173, 84, 0.12);
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.flavor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.flavor-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  text-align: center;
+}
+
+.flavor-card.selectable {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.flavor-card.selectable:hover {
+  transform: translateY(-2px);
+  border-color: rgba(241, 208, 137, 0.7);
+}
+
+.flavor-card.selectable:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+.flavor-card.selected {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold) inset;
+  position: relative;
+}
+
+.flavor-card.selected::after {
+  content: "\2713";
+  position: absolute;
+  top: 0.35rem;
+  right: 0.35rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--gold);
+  color: #241708;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+[dir="rtl"] .flavor-card.selected::after {
+  right: auto;
+  left: 0.35rem;
+}
+
+.flavor-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  background: #1c1510;
+}
+
+.flavor-name {
+  margin: 0;
+  padding: 0.5rem 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.flavor-step-indicator {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.8rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.flavor-step-count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.flavor-step-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+  flex: 1 1 auto;
+}
+
+.flavor-required-badge {
+  flex-shrink: 0;
+  background: rgba(217, 173, 84, 0.16);
+  color: var(--gold-soft);
+  border: 1px solid rgba(217, 173, 84, 0.5);
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.flavor-summary {
+  margin: 0.9rem 0 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: rgba(217, 173, 84, 0.1);
+  color: var(--gold-soft);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.flavor-sheet-footer {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.flavor-back-btn,
+.flavor-next-btn {
+  flex: 1 1 0;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid var(--line);
+}
+
+.flavor-back-btn {
+  background: transparent;
+  color: var(--muted);
+}
+
+.flavor-next-btn {
+  background: linear-gradient(120deg, #ad7a2f, #e7bf73);
+  color: #1a1108;
+  border-color: transparent;
+}
+
+.flavor-next-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.campaign-detail {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.campaign-detail-image {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: #1c1510;
+}
+
+.campaign-detail-price {
+  align-self: flex-start;
+  background: rgba(217, 173, 84, 0.16);
+  color: var(--gold-soft);
+  border: 1px solid rgba(217, 173, 84, 0.5);
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.campaign-detail-label {
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  color: var(--gold-soft);
+}
+
+.campaign-detail-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.campaign-detail-list li {
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+@media (min-width: 700px) {
+  .flavor-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

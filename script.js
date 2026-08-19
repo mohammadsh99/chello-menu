@@ -8,8 +8,20 @@ const heroImage = document.querySelector(".hero img");
 const footerLabelEls = document.querySelectorAll(".footer-grid p strong");
 const footerCopyright = document.querySelector(".copyright");
 const langButtons = document.querySelectorAll(".lang-btn");
+const flavorOverlay = document.getElementById("flavorOverlay");
+const flavorSheet = flavorOverlay?.querySelector(".flavor-sheet");
+const flavorSheetTitle = document.getElementById("flavorSheetTitle");
+const flavorGrid = document.getElementById("flavorGrid");
+const flavorCloseBtn = document.getElementById("flavorCloseBtn");
+const flavorStepIndicator = document.getElementById("flavorStepIndicator");
+const flavorSummary = document.getElementById("flavorSummary");
+const flavorFooter = document.getElementById("flavorFooter");
+const flavorBackBtn = document.getElementById("flavorBackBtn");
+const flavorNextBtn = document.getElementById("flavorNextBtn");
 const FALLBACK_IMAGE = "assets/hero/hero-banner.webp";
 const FEATURED_CATEGORY_ID = "chefs-recommendations";
+let openFlavorItemId = null;
+let optionWizardState = null;
 const LANGUAGE_STORAGE_KEY = "chello-menu-language";
 const DEFAULT_LANGUAGE = "en";
 const SUPPORTED_LANGUAGES = ["en", "ar"];
@@ -31,6 +43,19 @@ const UI_TEXT = {
     chatNow: "Chat Now",
     copyright: "All rights reserved.",
     heroAlt: "CHELLO CHOCOLATE signature desserts and drinks",
+    flavorsHint: "Tap to see flavors",
+    flavorsTitle: "Choose Your Flavor",
+    close: "Close",
+    customizeHint: "Tap to customize",
+    step: "Step",
+    of: "of",
+    continueLabel: "Continue",
+    backLabel: "Back",
+    doneLabel: "Done",
+    requiredBadge: "Required",
+    yourSelection: "Your Selection",
+    campaignHint: "Tap to view bundle details",
+    campaignIncludes: "What's Included",
   },
   ar: {
     title: "CHELLO CHOCOLATE | القائمة",
@@ -48,12 +73,26 @@ const UI_TEXT = {
     chatNow: "تواصل الآن",
     copyright: "جميع الحقوق محفوظة.",
     heroAlt: "حلويات ومشروبات CHELLO CHOCOLATE",
+    flavorsHint: "اضغط لعرض النكهات",
+    flavorsTitle: "اختر نكهتك المفضلة",
+    close: "إغلاق",
+    customizeHint: "اضغط للتخصيص",
+    step: "الخطوة",
+    of: "من",
+    continueLabel: "متابعة",
+    backLabel: "رجوع",
+    doneLabel: "تم",
+    requiredBadge: "مطلوب",
+    yourSelection: "اختيارك",
+    campaignHint: "اضغط لعرض تفاصيل الحملة",
+    campaignIncludes: "محتويات الحملة",
   },
 };
 
 const CATEGORY_TRANSLATIONS = {
   ar: {
     "chefs-recommendations": "⭐ توصيات الشيف",
+    campaigns: "الحملات",
     "signature-desserts": "حلويات مميزة",
     "belgian-waffles": "الوافل البلجيكي",
     pancakes: "البان كيك",
@@ -68,6 +107,39 @@ const CATEGORY_TRANSLATIONS = {
 
 const ITEM_TRANSLATIONS = {
   ar: {
+    "camp-milkshake": {
+      name: "حملة ميلك شيك",
+      description: "باقة مثالية لعشاق الميلك شيك.",
+      contents: ["2 ميلك شيك", "2 موهيتو وسط", "2 آيس باسيفلورا / توت"],
+    },
+    "camp-delaa-halak": {
+      name: "حملة دلع حالك",
+      description: "دلّع حالك بمزيج حلو من المفضلات.",
+      contents: ["قطعتين وافل", "20 كرة فشافيش", "6 ميني بانكيك"],
+    },
+    "camp-summer": {
+      name: "حملة الصيف",
+      description: "تركيبة صيفية منعشة.",
+      contents: ["2 فخفخينا صغير", "كريب", "15 كرة فشافيش", "3 كرات بوظة"],
+    },
+    "camp-fakhfakhina-chocolate": {
+      name: "حملة فخفخينا نشيلو شوكولاتة",
+      description: "فخفخينا مع فشافيش الشوكولاتة.",
+      contents: ["3 فخفخينا وسط", "20 كرة فشافيش"],
+    },
+    "camp-happiness": {
+      name: "حملة السعادة",
+      description: "أكبر باقة لمشاركة السعادة.",
+      contents: [
+        "2 فخفخينا صغير",
+        "2 شيك فواكه صغير",
+        "2 ميلك شيك صغير",
+        "15 كرة فشافيش",
+        "كريب",
+        "3 بانكيك كبير",
+        "3 كرات بوظة",
+      ],
+    },
     "rec-fruit-cocktail": {
       name: "كوكتيل الفواكه (فخفخينة)",
       subtitle: "الأكثر مبيعًا",
@@ -149,6 +221,56 @@ const ITEM_TRANSLATIONS = {
   },
 };
 
+const FLAVOR_TRANSLATIONS = {
+  ar: {
+    "sig-milkshake": {
+      oreo: "أوريو",
+      berry: "توت",
+      chocolate: "شوكولاتة",
+      vanilla: "فانيلا",
+      pistachio: "فستق",
+    },
+  },
+};
+
+const OPTION_STEP_TRANSLATIONS = {
+  ar: {
+    "ref-mojito": {
+      base: {
+        title: "اختر القاعدة",
+        options: {
+          sprite: "سبرايت",
+          xl: "XL",
+          "xl-ten": "XL TEN",
+          blu: "BLU",
+          "blu-day": "BLU DAY",
+        },
+      },
+      flavor: {
+        title: "اختر النكهة",
+        options: {
+          strawberry: "توت",
+          watermelon: "بطيخ",
+          mango: "مانجو",
+          pineapple: "أناناس",
+          blueberry: "توت أزرق",
+          banana: "موز",
+          orange: "برتقال",
+          kiwi: "كيوي",
+          mastic: "ماستك",
+          pomegranate: "رمان",
+          marshmallow: "مارشميلو",
+          peach: "خوخ",
+          mint: "نعناع",
+          lemon: "ليمون",
+          "passion-fruit": "باسفلورا",
+          "green-apple": "تفاح أخضر",
+        },
+      },
+    },
+  },
+};
+
 let sectionObserver = null;
 
 const state = {
@@ -227,6 +349,104 @@ function bindEvents() {
       setLanguage(button.dataset.lang);
     });
   });
+
+  menuContent.addEventListener("click", (event) => {
+    const card = event.target.closest(".menu-card[data-flavor-item]");
+    if (!card) {
+      return;
+    }
+
+    openFlavorSheet(card.getAttribute("data-flavor-item"));
+  });
+
+  menuContent.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    const card = event.target.closest(".menu-card[data-flavor-item]");
+    if (!card) {
+      return;
+    }
+
+    event.preventDefault();
+    openFlavorSheet(card.getAttribute("data-flavor-item"));
+  });
+
+  flavorCloseBtn?.addEventListener("click", closeFlavorSheet);
+
+  flavorGrid?.addEventListener("click", (event) => {
+    const optionCard = event.target.closest(".flavor-card[data-option-id]");
+    if (!optionCard || !optionWizardState || !openFlavorItemId) {
+      return;
+    }
+
+    const item = state.items.find(
+      (candidate) => candidate.id === openFlavorItemId,
+    );
+    const step = item?.optionSteps?.[optionWizardState.stepIndex];
+    if (!step) {
+      return;
+    }
+
+    optionWizardState.selections[step.id] =
+      optionCard.getAttribute("data-option-id");
+    renderFlavorSheet(openFlavorItemId);
+  });
+
+  flavorGrid?.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    const optionCard = event.target.closest(".flavor-card[data-option-id]");
+    if (!optionCard) {
+      return;
+    }
+
+    event.preventDefault();
+    optionCard.click();
+  });
+
+  flavorBackBtn?.addEventListener("click", () => {
+    if (!optionWizardState) {
+      return;
+    }
+    optionWizardState.stepIndex = Math.max(0, optionWizardState.stepIndex - 1);
+    renderFlavorSheet(openFlavorItemId);
+  });
+
+  flavorNextBtn?.addEventListener("click", () => {
+    if (!optionWizardState || !openFlavorItemId) {
+      return;
+    }
+
+    const item = state.items.find(
+      (candidate) => candidate.id === openFlavorItemId,
+    );
+    const totalSteps = item?.optionSteps?.length || 0;
+    const isLastStep = optionWizardState.stepIndex === totalSteps - 1;
+
+    if (isLastStep) {
+      closeFlavorSheet();
+      return;
+    }
+
+    optionWizardState.stepIndex += 1;
+    renderFlavorSheet(openFlavorItemId);
+  });
+
+  flavorOverlay?.addEventListener("click", (event) => {
+    if (event.target === flavorOverlay) {
+      closeFlavorSheet();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && openFlavorItemId) {
+      closeFlavorSheet();
+    }
+  });
 }
 
 function setLanguage(lang) {
@@ -281,6 +501,14 @@ function applyLanguage(lang) {
   const loadingText = menuContent.querySelector(".loading-text");
   if (loadingText) {
     loadingText.textContent = text.loading;
+  }
+
+  if (flavorCloseBtn) {
+    flavorCloseBtn.setAttribute("aria-label", text.close);
+  }
+
+  if (openFlavorItemId) {
+    renderFlavorSheet(openFlavorItemId);
   }
 
   updateLanguageButtons();
@@ -408,8 +636,27 @@ function renderCard(item) {
     ? `<p class="card-desc">${safeDescription}</p>`
     : "";
 
+  const hasFlavors = Array.isArray(item.flavors) && item.flavors.length > 0;
+  const hasOptionSteps =
+    Array.isArray(item.optionSteps) && item.optionSteps.length > 0;
+  const hasCampaignContents =
+    Array.isArray(item.contents) && item.contents.length > 0;
+  const isInteractive = hasFlavors || hasOptionSteps || hasCampaignContents;
+  const hintText = hasOptionSteps
+    ? UI_TEXT[state.lang].customizeHint
+    : hasCampaignContents
+      ? UI_TEXT[state.lang].campaignHint
+      : UI_TEXT[state.lang].flavorsHint;
+  const flavorHint = isInteractive
+    ? `<p class="card-flavor-hint">${escapeHtml(hintText)}</p>`
+    : "";
+  const flavorAttr = isInteractive
+    ? ` data-flavor-item="${escapeHtml(item.id)}" role="button" tabindex="0"`
+    : "";
+  const cardClasses = isInteractive ? "menu-card has-flavors" : "menu-card";
+
   return `
-    <article class="menu-card">
+    <article class="${cardClasses}"${flavorAttr}>
       <img
         class="card-media"
         src="${safeImage}"
@@ -426,6 +673,7 @@ function renderCard(item) {
           <span class="price-tag">${item.price} ₪</span>
         </div>
         ${description}
+        ${flavorHint}
       </div>
     </article>
   `;
@@ -485,6 +733,7 @@ function getLocalizedItem(item, lang = state.lang) {
     name: translated?.name || item.name,
     subtitle: translated?.subtitle || item.subtitle || "",
     description: translated?.description || item.description || "",
+    contents: translated?.contents || item.contents || [],
   };
 }
 
@@ -536,4 +785,244 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+function openFlavorSheet(itemId) {
+  const item = state.items.find((candidate) => candidate.id === itemId);
+  const hasFlavors = Array.isArray(item?.flavors) && item.flavors.length > 0;
+  const hasOptionSteps =
+    Array.isArray(item?.optionSteps) && item.optionSteps.length > 0;
+  const hasCampaignContents =
+    Array.isArray(item?.contents) && item.contents.length > 0;
+
+  if (!item || (!hasFlavors && !hasOptionSteps && !hasCampaignContents)) {
+    return;
+  }
+
+  openFlavorItemId = itemId;
+  optionWizardState = hasOptionSteps ? { stepIndex: 0, selections: {} } : null;
+  renderFlavorSheet(itemId);
+
+  flavorOverlay.hidden = false;
+  requestAnimationFrame(() => {
+    flavorOverlay.classList.add("open");
+  });
+  document.body.classList.add("no-scroll");
+}
+
+function closeFlavorSheet() {
+  if (!openFlavorItemId) {
+    return;
+  }
+
+  openFlavorItemId = null;
+  optionWizardState = null;
+  flavorOverlay.classList.remove("open");
+  document.body.classList.remove("no-scroll");
+
+  setTimeout(() => {
+    if (!openFlavorItemId) {
+      flavorOverlay.hidden = true;
+    }
+  }, 300);
+}
+
+function renderFlavorSheet(itemId) {
+  const item = state.items.find((candidate) => candidate.id === itemId);
+  if (!item) {
+    return;
+  }
+
+  if (Array.isArray(item.optionSteps) && item.optionSteps.length) {
+    renderOptionWizard(item);
+    return;
+  }
+
+  if (Array.isArray(item.contents) && item.contents.length) {
+    renderCampaignDetail(item);
+    return;
+  }
+
+  if (!Array.isArray(item.flavors)) {
+    return;
+  }
+
+  flavorStepIndicator.hidden = true;
+  flavorFooter.hidden = true;
+  flavorSummary.hidden = true;
+
+  const localizedItem = getLocalizedItem(item);
+  const itemName = localizedItem.name || item.name;
+  flavorSheetTitle.textContent = `${UI_TEXT[state.lang].flavorsTitle} · ${itemName}`;
+
+  const flavorTranslations = FLAVOR_TRANSLATIONS[state.lang]?.[item.id] || {};
+
+  flavorGrid.innerHTML = item.flavors
+    .map((flavor) => {
+      const safeName = escapeHtml(flavorTranslations[flavor.id] || flavor.name);
+      const safeImage = flavor.image
+        ? escapeHtml(flavor.image)
+        : FALLBACK_IMAGE;
+
+      return `
+        <article class="flavor-card">
+          <img
+            class="flavor-media"
+            src="${safeImage}"
+            alt="${safeName}"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="flavor-name">${safeName}</p>
+        </article>
+      `;
+    })
+    .join("");
+
+  flavorGrid.querySelectorAll(".flavor-media").forEach((img) => {
+    img.addEventListener(
+      "error",
+      () => {
+        img.src = FALLBACK_IMAGE;
+      },
+      { once: true },
+    );
+  });
+}
+
+function renderCampaignDetail(item) {
+  flavorStepIndicator.hidden = true;
+  flavorFooter.hidden = true;
+  flavorSummary.hidden = true;
+
+  const localizedItem = getLocalizedItem(item);
+  const itemName = localizedItem.name || item.name;
+  const safeImage = item.image ? escapeHtml(item.image) : FALLBACK_IMAGE;
+  const safeName = escapeHtml(itemName);
+
+  flavorSheetTitle.textContent = itemName;
+
+  const contentsList = localizedItem.contents
+    .map((line) => `<li>${escapeHtml(line)}</li>`)
+    .join("");
+
+  flavorGrid.innerHTML = `
+    <div class="campaign-detail">
+      <img
+        class="campaign-detail-image"
+        src="${safeImage}"
+        alt="${safeName}"
+        loading="lazy"
+        decoding="async"
+      />
+      <span class="campaign-detail-price">${item.price} ₪</span>
+      <p class="campaign-detail-label">${escapeHtml(
+        UI_TEXT[state.lang].campaignIncludes,
+      )}</p>
+      <ul class="campaign-detail-list">${contentsList}</ul>
+    </div>
+  `;
+
+  flavorGrid.querySelectorAll(".campaign-detail-image").forEach((img) => {
+    img.addEventListener(
+      "error",
+      () => {
+        img.src = FALLBACK_IMAGE;
+      },
+      { once: true },
+    );
+  });
+}
+
+function renderOptionWizard(item) {
+  const text = UI_TEXT[state.lang];
+  const steps = item.optionSteps;
+  const totalSteps = steps.length;
+  optionWizardState.stepIndex = Math.min(
+    optionWizardState.stepIndex,
+    totalSteps - 1,
+  );
+  const stepIndex = optionWizardState.stepIndex;
+  const step = steps[stepIndex];
+  const isLastStep = stepIndex === totalSteps - 1;
+  const stepTranslation =
+    OPTION_STEP_TRANSLATIONS[state.lang]?.[item.id]?.[step.id];
+  const stepTitle = stepTranslation?.title || step.title;
+  const selectedOptionId = optionWizardState.selections[step.id] || null;
+
+  const localizedItem = getLocalizedItem(item);
+  flavorSheetTitle.textContent = localizedItem.name || item.name;
+
+  flavorStepIndicator.hidden = false;
+  flavorStepIndicator.innerHTML = `
+    <span class="flavor-step-count">${escapeHtml(text.step)} ${
+      stepIndex + 1
+    } ${escapeHtml(text.of)} ${totalSteps}</span>
+    <span class="flavor-step-title">${escapeHtml(stepTitle)}</span>
+    <span class="flavor-required-badge">${escapeHtml(text.requiredBadge)}</span>
+  `;
+
+  flavorGrid.innerHTML = step.options
+    .map((option) => {
+      const optionName = stepTranslation?.options?.[option.id] || option.name;
+      const safeName = escapeHtml(optionName);
+      const safeImage = option.image
+        ? escapeHtml(option.image)
+        : FALLBACK_IMAGE;
+      const isSelected = option.id === selectedOptionId;
+
+      return `
+        <article
+          class="flavor-card selectable ${isSelected ? "selected" : ""}"
+          data-option-id="${escapeHtml(option.id)}"
+          role="button"
+          tabindex="0"
+        >
+          <img
+            class="flavor-media"
+            src="${safeImage}"
+            alt="${safeName}"
+            loading="lazy"
+            decoding="async"
+          />
+          <p class="flavor-name">${safeName}</p>
+        </article>
+      `;
+    })
+    .join("");
+
+  flavorGrid.querySelectorAll(".flavor-media").forEach((img) => {
+    img.addEventListener(
+      "error",
+      () => {
+        img.src = FALLBACK_IMAGE;
+      },
+      { once: true },
+    );
+  });
+
+  flavorFooter.hidden = false;
+  flavorBackBtn.hidden = stepIndex === 0;
+  flavorBackBtn.textContent = text.backLabel;
+  flavorNextBtn.disabled = !selectedOptionId;
+  flavorNextBtn.textContent = isLastStep ? text.doneLabel : text.continueLabel;
+
+  const allSelected = steps.every(
+    (wizardStep) => optionWizardState.selections[wizardStep.id],
+  );
+
+  if (isLastStep && allSelected) {
+    const summaryParts = steps.map((wizardStep) => {
+      const translation =
+        OPTION_STEP_TRANSLATIONS[state.lang]?.[item.id]?.[wizardStep.id];
+      const optionId = optionWizardState.selections[wizardStep.id];
+      const option = wizardStep.options.find((o) => o.id === optionId);
+      return translation?.options?.[optionId] || option?.name || "";
+    });
+
+    flavorSummary.hidden = false;
+    flavorSummary.textContent = `${text.yourSelection}: ${summaryParts.join(" + ")}`;
+  } else {
+    flavorSummary.hidden = true;
+  }
 }
