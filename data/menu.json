@@ -22,7 +22,7 @@
       "name": "Milkshake Bundle",
       "price": 100,
       "description": "A refreshing milkshake duo bundle.",
-      "image": "assets/campaigns/campaign-milkshake.jpg",
+      "image": "assets/campaigns/campaign-milkshake.webp",
       "contents": [
         "2 Milkshakes",
         "2 Medium Mojitos",
@@ -35,7 +35,7 @@
       "name": "Delaa Halak Bundle",
       "price": 100,
       "description": "Treat yourself to a sweet mix of favorites.",
-      "image": "assets/campaigns/campaign-delaa-halak.jpg",
+      "image": "assets/campaigns/campaign-delaa-halak.webp",
       "contents": ["2 Waffles", "20 Fshafesh Balls", "6 Mini Pancakes"]
     },
     {
@@ -44,7 +44,7 @@
       "name": "Summer Bundle",
       "price": 100,
       "description": "A cool summer treat combo.",
-      "image": "assets/campaigns/campaign-summer.jpg",
+      "image": "assets/campaigns/campaign-summer.webp",
       "contents": [
         "2 Small Fakhfakhina",
         "1 Crepe",
@@ -58,7 +58,7 @@
       "name": "Fakhfakhina & Chocolate Bundle",
       "price": 100,
       "description": "Fruit cocktail paired with chocolate skewers.",
-      "image": "assets/campaigns/campaign-fakhfakhina-chocolate.jpg",
+      "image": "assets/campaigns/campaign-fakhfakhina-chocolate.webp",
       "contents": ["3 Medium Fakhfakhina", "20 Fshafesh Balls"]
     },
     {
@@ -67,7 +67,7 @@
       "name": "Happiness Bundle",
       "price": 210,
       "description": "Our biggest bundle for sharing happiness.",
-      "image": "assets/campaigns/campaign-happiness.jpg",
+      "image": "assets/campaigns/campaign-happiness.webp",
       "contents": [
         "2 Small Fakhfakhina",
         "2 Small Fruit Shake",
@@ -141,27 +141,27 @@
         {
           "id": "oreo",
           "name": "Oreo",
-          "image": "assets/milkshakes/milkshake-oreo.jpg"
+          "image": "assets/milkshakes/milkshake-oreo.webp"
         },
         {
           "id": "berry",
           "name": "Berry",
-          "image": "assets/milkshakes/milkshake-berry.jpg"
+          "image": "assets/milkshakes/milkshake-berry.webp"
         },
         {
           "id": "chocolate",
           "name": "Chocolate",
-          "image": "assets/milkshakes/milkshake-chocolate.jpg"
+          "image": "assets/milkshakes/milkshake-chocolate.webp"
         },
         {
           "id": "vanilla",
           "name": "Vanilla",
-          "image": "assets/milkshakes/milkshake-vanilla.jpg"
+          "image": "assets/milkshakes/milkshake-vanilla.webp"
         },
         {
           "id": "pistachio",
           "name": "Pistachio",
-          "image": "assets/milkshakes/milkshake-pistachio.jpg"
+          "image": "assets/milkshakes/milkshake-pistachio.webp"
         }
       ]
     },
@@ -297,7 +297,7 @@
             {
               "id": "sprite",
               "name": "Sprite",
-              "image": "assets/refreshers/mojito-base-sprite.jpg"
+              "image": "assets/refreshers/mojito-base-sprite.webp"
             },
             {
               "id": "xl",
@@ -338,7 +338,7 @@
             {
               "id": "mango",
               "name": "Mango",
-              "image": "assets/refreshers/mojito-flavor-mango.jpg"
+              "image": "assets/refreshers/mojito-flavor-mango.webp"
             },
             {
               "id": "pineapple",
@@ -368,42 +368,42 @@
             {
               "id": "mastic",
               "name": "Mastic",
-              "image": "assets/refreshers/mojito-flavor-mastic.jpg"
+              "image": "assets/refreshers/mojito-flavor-mastic.webp"
             },
             {
               "id": "pomegranate",
               "name": "Pomegranate",
-              "image": "assets/refreshers/mojito-flavor-pomegranate.png"
+              "image": "assets/refreshers/mojito-flavor-pomegranate.webp"
             },
             {
               "id": "marshmallow",
               "name": "Marshmallow",
-              "image": "assets/refreshers/mojito-flavor-marshmallow.jpg"
+              "image": "assets/refreshers/mojito-flavor-marshmallow.webp"
             },
             {
               "id": "peach",
               "name": "Peach",
-              "image": "assets/refreshers/mojito-flavor-peach.png"
+              "image": "assets/refreshers/mojito-flavor-peach.webp"
             },
             {
               "id": "mint",
               "name": "Mint",
-              "image": "assets/refreshers/mojito-flavor-mint.jpg"
+              "image": "assets/refreshers/mojito-flavor-mint.webp"
             },
             {
               "id": "lemon",
               "name": "Lemon",
-              "image": "assets/refreshers/mojito-flavor-lemon.jpg"
+              "image": "assets/refreshers/mojito-flavor-lemon.webp"
             },
             {
               "id": "passion-fruit",
               "name": "Passion Fruit",
-              "image": "assets/refreshers/mojito-flavor-passionfruit.jpg"
+              "image": "assets/refreshers/mojito-flavor-passionfruit.webp"
             },
             {
               "id": "green-apple",
               "name": "Green Apple",
-              "image": "assets/refreshers/mojito-flavor-greenapple.jpg"
+              "image": "assets/refreshers/mojito-flavor-greenapple.webp"
             }
           ]
         }
